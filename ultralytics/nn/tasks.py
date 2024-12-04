@@ -8,6 +8,11 @@ import timm
 import torch
 import torch.nn as nn
 
+##自增模块##
+from ultralytics.nn.neck.GFPN import CSPStage
+from ultralytics.nn.Conv.BasicRFB import BasicRFB
+###########
+
 from ultralytics.nn.modules import (
     AIFI,
     C1,
@@ -1031,7 +1036,7 @@ def parse_model(d, ch, verbose=True, warehouse_manager=None):  # model_dict, inp
             C3_RetBlock, C2f_RetBlock, C3_PKIModule, C2f_PKIModule, RepNCSPELAN4_CAA, C3_FADC, C2f_FADC, C3_PPA, C2f_PPA, SRFD, DRFD, RGCSPELAN,
             C3_Faster_CGLU, C2f_Faster_CGLU, C3_Star, C2f_Star, C3_Star_CAA, C2f_Star_CAA, C3_KAN, C2f_KAN, C3_EIEM, C2f_EIEM, C3_DEConv, C2f_DEConv,
             C3_SMPCGLU, C2f_SMPCGLU, C3_Heat, C2f_Heat, CSP_PTB, SimpleStem, VisionClueMerge, VSSBlock_YOLO, XSSBlock, GLSA, C2f_WTConv, WTConv2d, FeaturePyramidSharedConv,
-            C2f_FMB, LDConv, C2f_gConv, C2f_WDBB, C2f_DeepDBB, C2f_AdditiveBlock, C2f_AdditiveBlock_CGLU, CSP_MSCB, C2f_MSMHSA_CGLU, CSP_PMSFA
+            C2f_FMB, LDConv, C2f_gConv, C2f_WDBB, C2f_DeepDBB, C2f_AdditiveBlock, C2f_AdditiveBlock_CGLU, CSP_MSCB, C2f_MSMHSA_CGLU, CSP_PMSFA,CSPStage,BasicRFB
         }:
             if args[0] == 'head_channel':
                 args[0] = d[args[0]]

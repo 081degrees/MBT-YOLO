@@ -6800,7 +6800,7 @@ class FGM(nn.Module):
         x1 = self.dwconv1(x)
         x2 = self.dwconv2(x)
 
-        x2_fft = torch.fft.fft2(x2, norm='backward')
+        x2_fft = torch.fft.fft2(x2.to(torch.float32), norm='backward')
 
         out = x1 * x2_fft
 
